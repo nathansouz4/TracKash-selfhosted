@@ -1,0 +1,31 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+node_modules
+dist
+dist-ssr
+.output
+.vinxi
+.tanstack/**
+.nitro
+
+# Optional local settings. Never commit them.
+.env
+.env.*
+!.env.example
+
+# The local database (data/trackash.db: financial data and the Pluggy credentials)
+# and personal exports (B3 statements). Never commit them.
+data/
+*.db
+*.db-wal
+*.db-shm
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.sw?

@@ -1,0 +1,255 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+/*
+ * Trackash design tokens.
+ * Theme: follows the OS unless the viewer picks one (html[data-theme]); dark and
+ * light are each chosen, not flipped. Components use semantic classes
+ * (bg-card, text-muted-foreground…), charts use --chart-* / --series-*; never
+ * fixed colors. Chart colors come from a validated data-viz palette: one blue
+ * for data, a lighter step of the same blue for de-emphasized marks.
+ */
+
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme="light"]) *) {
+      @slot;
+    }
+  }
+  &:where([data-theme="dark"] *) {
+    @slot;
+  }
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --color-warning: var(--warning);
+  --color-subtle: var(--subtle);
+}
+
+:root {
+  color-scheme: light;
+  --radius: 0.75rem;
+
+  --background: #f6f6f4;
+  --foreground: #0b0b0c;
+  --card: #ffffff;
+  --card-foreground: #0b0b0c;
+  --popover: #ffffff;
+  --popover-foreground: #0b0b0c;
+  --primary: #047857;
+  --primary-foreground: #ffffff;
+  --secondary: #efefec;
+  --secondary-foreground: #0b0b0c;
+  --muted: #efefec;
+  --muted-foreground: #5f5e5a;
+  --accent: #ecebe7;
+  --accent-foreground: #0b0b0c;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: #e6e5df;
+  --input: #dad9d2;
+  --ring: #059669;
+  --subtle: #fafaf8;
+
+  --brand: #059669;
+  --brand-soft: rgba(5, 150, 105, 0.1);
+  --positive: #047857;
+  --negative: #b91c1c;
+  --warning: #fab219;
+
+  --chart-surface: #ffffff;
+  --chart-grid: #e8e7e1;
+  --chart-axis: #c3c2b7;
+  --chart-label: #898781;
+  --series-1: #2a78d6;
+  --series-muted: #86b6ef;
+  --series-wash: rgba(42, 120, 214, 0.1);
+  /* Categorical slots (fixed order, validated palette) */
+  --cat-1: #2a78d6;
+  --cat-2: #eb6834;
+  --cat-3: #1baf7a;
+  --cat-4: #eda100;
+  --cat-5: #e87ba4;
+  --cat-6: #008300;
+  --cat-7: #6250d6;
+  --cat-8: #e34948;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --background: #09090b;
+    --foreground: #f4f4f5;
+    --card: #121214;
+    --card-foreground: #f4f4f5;
+    --popover: #18181b;
+    --popover-foreground: #f4f4f5;
+    --primary: #10b981;
+    --primary-foreground: #04150f;
+    --secondary: #1c1c1f;
+    --secondary-foreground: #f4f4f5;
+    --muted: #1c1c1f;
+    --muted-foreground: #a1a1aa;
+    --accent: #1f1f23;
+    --accent-foreground: #f4f4f5;
+    --destructive: #f87171;
+    --destructive-foreground: #09090b;
+    --border: #232327;
+    --input: #2e2e33;
+    --ring: #10b981;
+    --subtle: #161618;
+
+    --brand: #10b981;
+    --brand-soft: rgba(16, 185, 129, 0.12);
+    --positive: #34d399;
+    --negative: #f87171;
+    --warning: #fab219;
+
+    --chart-surface: #121214;
+    --chart-grid: #26262a;
+    --chart-axis: #38383d;
+    --chart-label: #898781;
+    --series-1: #3987e5;
+    --series-muted: #184f95;
+    --series-wash: rgba(57, 135, 229, 0.14);
+    --cat-1: #3987e5;
+    --cat-2: #d95926;
+    --cat-3: #199e70;
+    --cat-4: #c98500;
+    --cat-5: #d55181;
+    --cat-6: #008300;
+    --cat-7: #9085e9;
+    --cat-8: #e66767;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  --card: #121214;
+  --card-foreground: #f4f4f5;
+  --popover: #18181b;
+  --popover-foreground: #f4f4f5;
+  --primary: #10b981;
+  --primary-foreground: #04150f;
+  --secondary: #1c1c1f;
+  --secondary-foreground: #f4f4f5;
+  --muted: #1c1c1f;
+  --muted-foreground: #a1a1aa;
+  --accent: #1f1f23;
+  --accent-foreground: #f4f4f5;
+  --destructive: #f87171;
+  --destructive-foreground: #09090b;
+  --border: #232327;
+  --input: #2e2e33;
+  --ring: #10b981;
+  --subtle: #161618;
+
+  --brand: #10b981;
+  --brand-soft: rgba(16, 185, 129, 0.12);
+  --positive: #34d399;
+  --negative: #f87171;
+  --warning: #fab219;
+
+  --chart-surface: #121214;
+  --chart-grid: #26262a;
+  --chart-axis: #38383d;
+  --chart-label: #898781;
+  --series-1: #3987e5;
+  --series-muted: #184f95;
+  --series-wash: rgba(57, 135, 229, 0.14);
+  --cat-1: #3987e5;
+  --cat-2: #d95926;
+  --cat-3: #199e70;
+  --cat-4: #c98500;
+  --cat-5: #d55181;
+  --cat-6: #008300;
+  --cat-7: #9085e9;
+  --cat-8: #e66767;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /*
+   * Native <select> lists: transparent selects leave the option list to the OS (light on
+   * Windows) while the text inherits the theme's light ink. Paint the options with the
+   * popover colors so they read in both themes.
+   */
+  select option,
+  select optgroup {
+    background-color: var(--color-popover);
+    color: var(--color-popover-foreground);
+  }
+}
+
+/*
+ * Privacy mode (eye toggle): blurs every amount. Applied with html[data-privacy="on"]
+ * before first paint, so values never flash.
+ */
+.sensitive {
+  transition: filter 150ms ease;
+}
+
+:root[data-privacy="on"] .sensitive,
+:root[data-privacy="on"] .recharts-yAxis .recharts-cartesian-axis-tick-value,
+:root[data-privacy="on"] .recharts-tooltip-wrapper {
+  filter: blur(7px);
+  user-select: none;
+}
+
+/* Large headline figures need a stronger blur to stay unreadable. */
+:root[data-privacy="on"] .sensitive-strong {
+  filter: blur(18px);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
