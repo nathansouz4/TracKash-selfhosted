@@ -2,7 +2,7 @@
   <img src="public/favicon.svg" alt="TracKash" width="96" height="96">
 </p>
 
-<h1 align="center">Trackash</h1>
+<h1 align="center">TracKash</h1>
 
 <p align="center">
   Open-source personal finance dashboard for Brazil that runs on your own computer: bank accounts,
