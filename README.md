@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/favicon.svg" alt="Trackash" width="96" height="96">
+  <img src="public/favicon.svg" alt="TracKash" width="96" height="96">
 </p>
 
 <h1 align="center">Trackash</h1>
